@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "world-cup-oracle": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp-server/server.py"],
+      "cwd": "${CLAUDE_PLUGIN_ROOT}",
+      "env": {
+        "WORLD_CUP_ORACLE_MODELS": "${CLAUDE_PLUGIN_ROOT}/.local/models",
+        "WORLD_CUP_ORACLE_TRAINING_DATA": "${CLAUDE_PLUGIN_ROOT}/.local/training",
+        "WORLD_CUP_ORACLE_DB": "${CLAUDE_PLUGIN_ROOT}/.local/football-data.sqlite3"
+      }
+    },
+    "world-cup-oracle-model-lab": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp-server/model_server.py"],
+      "cwd": "${CLAUDE_PLUGIN_ROOT}",
+      "env": {
+        "WORLD_CUP_ORACLE_MODELS": "${CLAUDE_PLUGIN_ROOT}/.local/models",
+        "WORLD_CUP_ORACLE_TRAINING_DATA": "${CLAUDE_PLUGIN_ROOT}/.local/training",
+        "WORLD_CUP_ORACLE_DB": "${CLAUDE_PLUGIN_ROOT}/.local/football-data.sqlite3"
+      }
+    }
+  }
+}

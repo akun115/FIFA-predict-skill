@@ -1,0 +1,25 @@
+# World Cup Oracle — Cron Job Examples
+#
+# TEMPLATE ONLY.  All entries are commented out.
+# Not installed or activated by default.
+# Customize paths and enable as needed.
+#
+# Default mode: OFFLINE.  No network, no env reads.
+
+# Healthcheck — every 6 hours
+# 0 */6 * * * cd /opt/world-cup-oracle && /usr/bin/python3 -m oracle_core.production_health >> /var/log/world-cup-oracle/health.log 2>&1
+
+# Coverage validator dry-run — weekly Sunday 03:00
+# 0 3 * * 0 cd /opt/world-cup-oracle && /usr/bin/python3 -m oracle_core.live_coverage_validator --provider thesportsdb >> /var/log/world-cup-oracle/coverage.log 2>&1
+
+# Report generation dry-run — daily 06:00
+# 0 6 * * * cd /opt/world-cup-oracle && /usr/bin/python3 -m oracle_core.real_match_cli --home "Team A" --away "Team B" --output /opt/world-cup-oracle/output/report_$(date +\%Y\%m\%d).txt 2>&1
+
+# Snapshot cleanup dry-run — weekly Sunday 04:00
+# 0 4 * * 0 cd /opt/world-cup-oracle && /usr/bin/python3 -c "from oracle_core.production_storage import *; r = apply_retention_policy(create_local_backend('/opt/world-cup-oracle/output/snapshots'), RetentionPolicy(max_age_days=30, max_count=100, policy_name='default'), dry_run=True); print(r)" >> /var/log/world-cup-oracle/cleanup.log 2>&1
+
+# Readiness gate — weekly Monday 09:00
+# 0 9 * * 1 cd /opt/world-cup-oracle && /usr/bin/python3 -m oracle_core.production_readiness_gate --json >> /var/log/world-cup-oracle/readiness.json 2>&1
+
+# Alert dry-run — daily 08:00
+# 0 8 * * * cd /opt/world-cup-oracle && /usr/bin/python3 -c "from oracle_core.production_alerting import dry_run_alert_system; dry_run_alert_system()" >> /var/log/world-cup-oracle/alerts.log 2>&1

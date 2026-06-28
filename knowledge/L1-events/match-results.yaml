@@ -1,0 +1,67 @@
+matches:
+- id: wc2026-grpB-sui-can
+  date: '2026-06-25'
+  stage: group
+  team_a: Switzerland
+  team_b: Canada
+  score:
+  - 2
+  - 1
+  neutral_site: true
+  home_team: null
+  stats: {}
+- id: wc2026-grpB-bih-qat
+  date: '2026-06-25'
+  stage: group
+  team_a: Bosnia and Herzegovina
+  team_b: Qatar
+  score:
+  - 3
+  - 1
+  neutral_site: true
+  home_team: null
+  stats: {}
+- id: wc2026-grpC-sco-bra
+  date: '2026-06-25'
+  stage: group
+  team_a: Scotland
+  team_b: Brazil
+  score:
+  - 0
+  - 3
+  neutral_site: true
+  home_team: null
+  stats: {}
+- id: wc2026-grpC-mar-hai
+  date: '2026-06-25'
+  stage: group
+  team_a: Morocco
+  team_b: Haiti
+  score:
+  - 4
+  - 2
+  neutral_site: true
+  home_team: null
+  stats: {}
+- id: wc2026-grpA-rsa-kor
+  date: '2026-06-25'
+  stage: group
+  team_a: South Africa
+  team_b: South Korea
+  score:
+  - 1
+  - 0
+  neutral_site: true
+  home_team: null
+  stats: {}
+- id: wc2026-grpA-cze-mex
+  date: '2026-06-25'
+  stage: group
+  team_a: Czech Republic
+  team_b: Mexico
+  score:
+  - 0
+  - 3
+  neutral_site: true
+  home_team: null
+  stats: {}

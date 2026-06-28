@@ -1,0 +1,132 @@
+# Test fixture — knockout bracket for Patch 10
+# Not production data.  Covers group_rank, match_winner, unresolved, and edge cases.
+
+bracket:
+  # --- Scheduled match with both teams resolved from group ranks ---
+  - match_id: "wc2026-R16-01"
+    round: "R16"
+    team_a_slot:
+      slot_id: "1A"
+      source_type: "group_rank"
+      group: "A"
+      rank: 1
+    team_b_slot:
+      slot_id: "2B"
+      source_type: "group_rank"
+      group: "B"
+      rank: 2
+    team_a: "FIC_ALPHA"
+    team_b: "FIC_BETA"
+    kickoff_utc: "2026-07-05T16:00:00Z"
+    status: "scheduled"
+
+  # --- Scheduled match with one team from a prior match winner (unresolved) ---
+  - match_id: "wc2026-R16-02"
+    round: "R16"
+    team_a_slot:
+      slot_id: "1C"
+      source_type: "group_rank"
+      group: "C"
+      rank: 1
+    team_b_slot:
+      slot_id: "W-R32-07"
+      source_type: "match_winner"
+      source_match_id: "wc2026-R32-07"
+    team_a: "FIC_GAMMA"
+    # team_b intentionally null — winner of R32-07 not yet known
+    kickoff_utc: "2026-07-05T20:00:00Z"
+    status: "scheduled"
+
+  # --- Completed match with regulation_score, winner, and bracket linkage ---
+  - match_id: "wc2026-R32-01"
+    round: "R32"
+    team_a_slot:
+      slot_id: "2D"
+      source_type: "group_rank"
+      group: "D"
+      rank: 2
+    team_b_slot:
+      slot_id: "2E"
+      source_type: "group_rank"
+      group: "E"
+      rank: 2
+    team_a: "TeamDelta"
+    team_b: "TeamEcho"
+    kickoff_utc: "2026-07-03T16:00:00Z"
+    status: "completed"
+    regulation_score: [2, 1]
+    winner: "TeamDelta"
+
+  # --- Scheduled match where the winner of R32-01 advances here ---
+  - match_id: "wc2026-R16-03"
+    round: "R16"
+    team_a_slot:
+      slot_id: "W-R32-01"
+      source_type: "match_winner"
+      source_match_id: "wc2026-R32-01"
+    team_b_slot:
+      slot_id: "W-R32-08"
+      source_type: "match_winner"
+      source_match_id: "wc2026-R32-08"
+    team_a: "TeamDelta"
+    team_b: "TeamHotel"
+    kickoff_utc: "2026-07-06T16:00:00Z"
+    status: "scheduled"
+
+  # --- Completed match with ET + PK scores but missing winner (warning) ---
+  - match_id: "wc2026-QF-missing-winner"
+    round: "QF"
+    team_a_slot:
+      slot_id: "W-R16-01"
+      source_type: "match_winner"
+      source_match_id: "wc2026-R16-01"
+    team_b_slot:
+      slot_id: "W-R16-02"
+      source_type: "match_winner"
+      source_match_id: "wc2026-R16-02"
+    team_a: "FIC_ALPHA"
+    team_b: "FIC_GAMMA"
+    kickoff_utc: "2026-07-10T16:00:00Z"
+    status: "completed"
+    regulation_score: [1, 1]
+    extra_time_score: [0, 0]
+    penalties_score: [4, 3]
+    # winner intentionally missing — edge case
+
+  # --- Completed with penalties but no extra_time_score (warning) ---
+  - match_id: "wc2026-R16-pk-no-et"
+    round: "R16"
+    team_a_slot:
+      slot_id: "1G"
+      source_type: "group_rank"
+      group: "G"
+      rank: 1
+    team_b_slot:
+      slot_id: "2H"
+      source_type: "group_rank"
+      group: "H"
+      rank: 2
+    team_a: "TeamGolf"
+    team_b: "TeamHotel"
+    kickoff_utc: "2026-07-04T16:00:00Z"
+    status: "completed"
+    regulation_score: [0, 0]
+    penalties_score: [5, 4]
+    winner: "TeamGolf"
+    # extra_time_score missing — edge case
+
+  # --- Scheduled match with unresolved slots (both teams null) ---
+  - match_id: "wc2026-R32-unresolved"
+    round: "R32"
+    team_a_slot:
+      slot_id: "1X"
+      source_type: "group_rank"
+      group: "X"
+      rank: 1
+    team_b_slot:
+      slot_id: "W-playoff"
+      source_type: "match_winner"
+      source_match_id: "wc2026-playoff"
+    # team_a and team_b both null — unresolved slots
+    kickoff_utc: "2026-07-01T16:00:00Z"
+    status: "scheduled"

@@ -1,0 +1,4 @@
+# Tactical hypotheses must be added only with a definition, source coverage,
+# sample size, validation method, and out-of-sample evidence.
+
+hypotheses: []

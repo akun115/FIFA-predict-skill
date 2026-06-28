@@ -1,0 +1,39 @@
+# World Cup Oracle — Docker Compose Template
+#
+# TEMPLATE ONLY — not a verified production deployment.
+# Default mode: OFFLINE.  Live features require explicit opt-in + credentials.
+
+version: "3.8"
+
+services:
+  oracle:
+    build:
+      context: ../..
+      dockerfile: deploy/docker/Dockerfile
+    image: world-cup-oracle:latest
+    container_name: world-cup-oracle
+    environment:
+      # ── Default: offline (fail-closed) ──
+      - WORLD_CUP_ORACLE_RUNTIME_MODE=offline
+      - WORLD_CUP_ORACLE_NETWORK_ALLOWED=false
+      - WORLD_CUP_ORACLE_ENV_ACCESS_ALLOWED=false
+      - WORLD_CUP_ORACLE_DEPLOYMENT_ENVIRONMENT=local-dev
+      # ── Live features require explicit opt-in ──
+      # Uncomment and provide credentials for live mode:
+      # - WORLD_CUP_ORACLE_RUNTIME_MODE=live_opt_in
+      # - WORLD_CUP_ORACLE_NETWORK_ALLOWED=true
+      # - WORLD_CUP_ORACLE_ENV_ACCESS_ALLOWED=true
+    env_file:
+      - ../env/.env  # Placeholder only — provide real credentials externally
+    volumes:
+      # Output directory for reports, logs, snapshots
+      - ./output:/app/output
+    # Healthcheck (offline by default)
+    healthcheck:
+      test: ["CMD", "python", "-m", "oracle_core.production_health"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: "no"
+    # No ports exposed — CLI tool, not a server

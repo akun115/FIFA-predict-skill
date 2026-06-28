@@ -1,0 +1,55 @@
+teams:
+  Mexico:
+    elo: 1853.7651744944978
+    elo_trend: 3.7651744944978742
+    fifa_rank: 15
+    attack_rating: 70
+    defense_rating: 68
+    midfield_rating: 72
+    style:
+      buildup: direct
+      press: mid
+      width: wide
+      tempo: fast
+    form_last_5:
+    - date: '2026-06-25'
+      opponent: Czech Republic
+      result: 3-0
+    injuries: []
+    last_match_date: '2026-06-25'
+  Canada:
+    elo: 1753.32280098613
+    elo_trend: -26.67719901387002
+    fifa_rank: 31
+    attack_rating: 65
+    defense_rating: 62
+    midfield_rating: 66
+    style:
+      buildup: direct
+      press: mid
+      width: central
+      tempo: fast
+    form_last_5:
+    - date: '2026-06-25'
+      opponent: Switzerland
+      result: 1-2
+    injuries: []
+    last_match_date: '2026-06-25'
+  Brazil:
+    elo: 1952.232265195485
+    elo_trend: 2.232265195485
+    fifa_rank: 2
+    attack_rating: 82
+    defense_rating: 75
+    midfield_rating: 80
+    style:
+      buildup: possession
+      press: high
+      width: wide
+      tempo: balanced
+    form_last_5:
+    - date: '2026-06-25'
+      opponent: Scotland
+      result: 3-0
+    injuries: []
+    last_match_date: '2026-06-25'

@@ -1,0 +1,49 @@
+# FIFA World Cup 2026 — Tournament Rules
+# Reference: FIFA 2026 World Cup Regulations
+#
+# 48 teams, 12 groups of 4
+# Top 2 per group (24) + 8 best 3rd-place teams → Round of 32
+
+tournament_name: "FIFA World Cup 2026"
+group_stage_format: "12 groups of 4 teams, single round-robin"
+total_groups: 12
+teams_per_group: 4
+matchdays_per_group: 3
+
+advancement:
+  group_stage:
+    top_n_per_group: 2
+    best_third_place_count: 8
+    total_advancing: 32
+
+group_tiebreakers:
+  - points
+  - goal_difference
+  - goals_for
+  - head_to_head_points
+  - head_to_head_goal_difference
+  - head_to_head_goals_for
+  - fair_play_points
+  - drawing_of_lots
+
+best_third_place_ranking:
+  description: >
+    Rank all 12 third-place teams by the following criteria.
+    Only results against the top-2 teams in each group count
+    (results vs the 4th-placed team are discarded).
+  criteria:
+    - points
+    - goal_difference
+    - goals_for
+    - fair_play_points
+    - drawing_of_lots
+
+knockout_stage:
+  rounds:
+    - R32  # Round of 32 (48 → 32 → 16 after this round)
+    - R16
+    - QF
+    - SF
+    - 3rd  # Third-place match
+    - F    # Final
+  bracket_determined_after: "group stage completion"

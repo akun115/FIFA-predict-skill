@@ -1,0 +1,51 @@
+# World Cup Oracle — systemd Service Template
+#
+# TEMPLATE ONLY — not a verified production deployment.
+# Copy to /etc/systemd/system/ and customize paths/credentials.
+#
+# Default: OFFLINE mode.  Live features require explicit opt-in.
+
+[Unit]
+Description=World Cup Oracle — Production-Oriented MVP
+Documentation=https://github.com/<org>/world-cup-oracle
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=oracle
+Group=oracle
+WorkingDirectory=/opt/world-cup-oracle
+
+# ── Environment (default offline) ──
+Environment=WORLD_CUP_ORACLE_RUNTIME_MODE=offline
+Environment=WORLD_CUP_ORACLE_NETWORK_ALLOWED=false
+Environment=WORLD_CUP_ORACLE_ENV_ACCESS_ALLOWED=false
+Environment=WORLD_CUP_ORACLE_DEPLOYMENT_ENVIRONMENT=production
+Environment=PYTHONUNBUFFERED=1
+
+# ── Credentials (placeholders — provide real values) ──
+# EnvironmentFile=/opt/world-cup-oracle/deploy/env/.env
+
+# ── Command: healthcheck (no network by default) ──
+ExecStart=/usr/bin/python3 -m oracle_core.production_health
+
+# ── Output ──
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=world-cup-oracle
+
+# ── Security hardening ──
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/world-cup-oracle/output
+ReadOnlyPaths=/opt/world-cup-oracle
+
+# ── Failure handling ──
+# This is a CLI tool — oneshot with no auto-restart.
+# For scheduled runs, use a systemd timer.
+
+[Install]
+WantedBy=multi-user.target

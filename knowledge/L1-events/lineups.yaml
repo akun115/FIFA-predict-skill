@@ -1,0 +1,10 @@
+# L1 事件层 — 比赛阵容（不可变事实，追加式写入）
+
+lineups: []
+# 示例:
+# - match_id: "2026-WC-GROUP-A-01"
+#   team: ""
+#   formation: ""
+#   starters: []
+#   substitutes: []
+#   unused_subs: []

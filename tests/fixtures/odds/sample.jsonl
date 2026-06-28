@@ -1,0 +1,5 @@
+{"match_id": "wc2026-grpA-aaa-bbb", "source": "fixture", "odds_format": "decimal", "market_type": "1x2", "team_a_win": 2.10, "draw": 3.25, "team_b_win": 3.60, "captured_at": "2026-06-20T00:00:00Z"}
+{"match_id": "wc2026-grpA-aaa-ccc", "source": "fixture", "odds_format": "decimal", "market_type": "1x2", "team_a_win": 1.80, "draw": 3.50, "team_b_win": 4.50, "captured_at": "2026-06-20T00:00:00Z"}
+{"match_id": "wc2026-grpB-xxx-yyy-md3", "source": "fixture", "odds_format": "decimal", "market_type": "1x2", "team_a_win": 1.55, "draw": 4.00, "team_b_win": 5.50, "captured_at": "2026-06-20T00:00:00Z"}
+{"match_id": "wc2026-ou25-test", "source": "fixture", "odds_format": "decimal", "market_type": "over_under_2_5", "over": 1.90, "under": 1.95, "threshold": 2.5, "captured_at": "2026-06-20T00:00:00Z"}
+{"match_id": "wc2026-invalid-odds", "source": "fixture", "odds_format": "decimal", "market_type": "1x2", "team_a_win": 1.01, "draw": 1.80, "team_b_win": 3.00, "captured_at": "2026-06-20T00:00:00Z"}

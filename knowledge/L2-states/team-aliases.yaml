@@ -1,0 +1,38 @@
+# Team name aliases — canonical form → recognized variants
+# Used by load_groups() and load_schedule() for normalization.
+# The key is the canonical name; values are accepted aliases.
+#
+# When matching: if a name matches a canonical key OR any alias,
+# normalize to the canonical key.
+
+aliases:
+  Czech Republic:
+    - Czechia
+  United States:
+    - USA
+  South Korea:
+    - Korea Republic
+    - Republic of Korea
+  DR Congo:
+    - Congo DR
+    - Democratic Republic of the Congo
+  Ivory Coast:
+    - Côte d'Ivoire
+  North Korea:
+    - Korea DPR
+    - Democratic People's Republic of Korea
+  Iran:
+    - IR Iran
+  Bosnia and Herzegovina:
+    - Bosnia-Herzegovina
+    - Bosnia
+  Trinidad and Tobago:
+    - Trinidad & Tobago
+  United Arab Emirates:
+    - UAE
+  Saudi Arabia:
+    - KSA
+  England:
+    - ENG
+  Netherlands:
+    - Holland

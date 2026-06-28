@@ -1,0 +1,194 @@
+# FIFA World Cup 2026 — Complete Match Schedule (Groups A/B/C)
+# This file is the SOURCE OF TRUTH for the match schedule and current match state.
+# match-results.yaml is the append-only settlement audit log.
+# Scores are populated as matches complete.
+
+matches:
+  # === Group A, Matchday 1 — June 20, 2026 ===
+  - match_id: wc2026-grpA-mex-rsa
+    group_or_round: A
+    matchday: 1
+    kickoff_utc: "2026-06-20T18:00:00Z"
+    venue: "Estadio Banorte, Mexico City, Mexico"
+    team_a: Mexico
+    team_b: South Africa
+    neutral_site: true
+    score: [2, 0]
+
+  - match_id: wc2026-grpA-kor-cze
+    group_or_round: A
+    matchday: 1
+    kickoff_utc: "2026-06-21T02:00:00Z"
+    venue: "Estadio BBVA, Monterrey, Mexico"
+    team_a: South Korea
+    team_b: Czech Republic
+    neutral_site: true
+    score: [2, 1]
+
+  # === Group A, Matchday 2 — June 23, 2026 ===
+  - match_id: wc2026-grpA-mex-kor
+    group_or_round: A
+    matchday: 2
+    kickoff_utc: "2026-06-23T18:00:00Z"
+    venue: "Estadio Banorte, Mexico City, Mexico"
+    team_a: Mexico
+    team_b: South Korea
+    neutral_site: true
+    score: [1, 0]
+
+  - match_id: wc2026-grpA-rsa-cze
+    group_or_round: A
+    matchday: 2
+    kickoff_utc: "2026-06-24T02:00:00Z"
+    venue: "Estadio BBVA, Monterrey, Mexico"
+    team_a: South Africa
+    team_b: Czech Republic
+    neutral_site: true
+    score: [1, 1]
+
+  # === Group A, Matchday 3 — June 25, 2026 ===
+  - match_id: wc2026-grpA-rsa-kor
+    group_or_round: A
+    matchday: 3
+    kickoff_utc: "2026-06-26T02:00:00Z"
+    venue: "Estadio BBVA, Monterrey, Mexico"
+    team_a: South Africa
+    team_b: South Korea
+    neutral_site: true
+    score: [1, 0]
+
+  - match_id: wc2026-grpA-cze-mex
+    group_or_round: A
+    matchday: 3
+    kickoff_utc: "2026-06-26T02:00:00Z"
+    venue: "Estadio Banorte, Mexico City, Mexico"
+    team_a: Czech Republic
+    team_b: Mexico
+    neutral_site: true
+    score: [0, 3]
+
+  # === Group B, Matchday 1 — June 21, 2026 ===
+  - match_id: wc2026-grpB-can-sui
+    group_or_round: B
+    matchday: 1
+    kickoff_utc: "2026-06-21T18:00:00Z"
+    venue: "BC Place, Vancouver, Canada"
+    team_a: Canada
+    team_b: Switzerland
+    neutral_site: true
+    score: [1, 1]
+
+  - match_id: wc2026-grpB-bih-qat-md1
+    group_or_round: B
+    matchday: 1
+    kickoff_utc: "2026-06-22T00:00:00Z"
+    venue: "Lumen Field, Seattle, USA"
+    team_a: Bosnia and Herzegovina
+    team_b: Qatar
+    neutral_site: true
+    score: [1, 1]
+
+  # === Group B, Matchday 2 — June 24, 2026 ===
+  - match_id: wc2026-grpB-can-qat
+    group_or_round: B
+    matchday: 2
+    kickoff_utc: "2026-06-24T18:00:00Z"
+    venue: "BC Place, Vancouver, Canada"
+    team_a: Canada
+    team_b: Qatar
+    neutral_site: true
+    score: [6, 0]
+
+  - match_id: wc2026-grpB-sui-bih
+    group_or_round: B
+    matchday: 2
+    kickoff_utc: "2026-06-25T00:00:00Z"
+    venue: "Lumen Field, Seattle, USA"
+    team_a: Switzerland
+    team_b: Bosnia and Herzegovina
+    neutral_site: true
+    score: [3, 1]
+
+  # === Group B, Matchday 3 — June 25, 2026 ===
+  - match_id: wc2026-grpB-sui-can
+    group_or_round: B
+    matchday: 3
+    kickoff_utc: "2026-06-26T00:00:00Z"
+    venue: "BC Place, Vancouver, Canada"
+    team_a: Switzerland
+    team_b: Canada
+    neutral_site: true
+    score: [2, 1]
+
+  - match_id: wc2026-grpB-bih-qat
+    group_or_round: B
+    matchday: 3
+    kickoff_utc: "2026-06-26T00:00:00Z"
+    venue: "Lumen Field, Seattle, USA"
+    team_a: Bosnia and Herzegovina
+    team_b: Qatar
+    neutral_site: true
+    score: [3, 1]
+
+  # === Group C, Matchday 1 — June 20, 2026 ===
+  - match_id: wc2026-grpC-bra-mar
+    group_or_round: C
+    matchday: 1
+    kickoff_utc: "2026-06-20T22:00:00Z"
+    venue: "Hard Rock Stadium, Miami, USA"
+    team_a: Brazil
+    team_b: Morocco
+    neutral_site: true
+    score: [1, 1]
+
+  - match_id: wc2026-grpC-sco-hai
+    group_or_round: C
+    matchday: 1
+    kickoff_utc: "2026-06-21T03:00:00Z"
+    venue: "Mercedes-Benz Stadium, Atlanta, USA"
+    team_a: Scotland
+    team_b: Haiti
+    neutral_site: true
+    score: [1, 0]
+
+  # === Group C, Matchday 2 — June 23, 2026 ===
+  - match_id: wc2026-grpC-bra-hai
+    group_or_round: C
+    matchday: 2
+    kickoff_utc: "2026-06-23T22:00:00Z"
+    venue: "Hard Rock Stadium, Miami, USA"
+    team_a: Brazil
+    team_b: Haiti
+    neutral_site: true
+    score: [3, 0]
+
+  - match_id: wc2026-grpC-sco-mar
+    group_or_round: C
+    matchday: 2
+    kickoff_utc: "2026-06-24T03:00:00Z"
+    venue: "Mercedes-Benz Stadium, Atlanta, USA"
+    team_a: Scotland
+    team_b: Morocco
+    neutral_site: true
+    score: [0, 1]
+
+  # === Group C, Matchday 3 — June 25, 2026 ===
+  - match_id: wc2026-grpC-sco-bra
+    group_or_round: C
+    matchday: 3
+    kickoff_utc: "2026-06-26T03:00:00Z"
+    venue: "Hard Rock Stadium, Miami, USA"
+    team_a: Scotland
+    team_b: Brazil
+    neutral_site: true
+    score: [0, 3]
+
+  - match_id: wc2026-grpC-mar-hai
+    group_or_round: C
+    matchday: 3
+    kickoff_utc: "2026-06-26T03:00:00Z"
+    venue: "Mercedes-Benz Stadium, Atlanta, USA"
+    team_a: Morocco
+    team_b: Haiti
+    neutral_site: true
+    score: [4, 2]

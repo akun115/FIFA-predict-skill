@@ -1,0 +1,16 @@
+{
+  "name": "world-cup-oracle-local",
+  "owner": {
+    "name": "World Cup Oracle Team"
+  },
+  "description": "World Cup prediction plugin with deterministic Python probabilities and data-provenance-aware hub.",
+  "plugins": [
+    {
+      "name": "world-cup-oracle",
+      "source": "./",
+      "description": "World Cup Oracle — statistical Dixon-Coles model + multi-agent match analysis + model lab for training and walk-forward evaluation.",
+      "version": "2.2.0",
+      "license": "MIT"
+    }
+  ]
+}

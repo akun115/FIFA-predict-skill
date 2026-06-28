@@ -1,0 +1,10 @@
+date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
+2001-12-31,Old A,Old B,1,0,Friendly,X,X,FALSE
+2002-01-04,Team A,Team B,2,1,Friendly,X,X,FALSE
+2002-01-04,Team A,Team B,2,1,Friendly,X,X,FALSE
+2022-12-18,Argentina,France,3,3,FIFA World Cup,Lusail,Qatar,TRUE
+2020-01-01,Missing A,Missing B,NA,NA,Friendly,X,X,FALSE
+2021-01-01,Bad A,Bad B,-1,0,Friendly,X,X,FALSE
+2018-01-01,Conflict A,Conflict B,1,0,Friendly,X,X,FALSE
+2018-01-01,Conflict A,Conflict B,2,0,Friendly,X,X,FALSE
+2026-06-22,Future A,Future B,NA,NA,FIFA World Cup,X,X,TRUE

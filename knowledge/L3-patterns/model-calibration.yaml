@@ -1,0 +1,6 @@
+prediction_history: []
+calibration:
+  model_status: provisional
+  model_version: provisional-v1
+  minimum_for_stable_report: 30
+  automatic_weight_updates: false

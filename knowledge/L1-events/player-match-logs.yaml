@@ -1,0 +1,26 @@
+# L1 事件层 — 球员单场表现（不可变事实，追加式写入）
+
+logs: []
+# 示例:
+# - match_id: "2026-WC-GROUP-A-01"
+#   player: ""
+#   team: ""
+#   position: ""
+#   minutes_played: 0
+#   stats:
+#     goals: 0
+#     assists: 0
+#     shots: 0
+#     shots_on_target: 0
+#     xg: 0.0
+#     key_passes: 0
+#     dribbles_attempted: 0
+#     dribbles_success: 0
+#     passes: 0
+#     pass_accuracy: 0.0
+#     tackles: 0
+#     interceptions: 0
+#     fouls_drawn: 0
+#     fouls_committed: 0
+#     dispossessed: 0
+#   rating: 0.0

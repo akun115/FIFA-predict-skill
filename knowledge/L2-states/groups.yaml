@@ -1,0 +1,30 @@
+# FIFA World Cup 2026 — Group Stage Membership
+# Source: FIFA Official Draw
+# Populate additional groups (D–L) as official data becomes available.
+
+tournament: "FIFA World Cup 2026"
+groups:
+  A:
+    - Mexico
+    - South Korea
+    - South Africa
+    - Czech Republic
+  B:
+    - Canada
+    - Switzerland
+    - Bosnia and Herzegovina
+    - Qatar
+  C:
+    - Brazil
+    - Morocco
+    - Scotland
+    - Haiti
+  # D: [TBD]
+  # E: [TBD]
+  # F: [TBD]
+  # G: [TBD]
+  # H: [TBD]
+  # I: [TBD]
+  # J: [TBD]
+  # K: [TBD]
+  # L: [TBD]
