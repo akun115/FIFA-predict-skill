@@ -53,7 +53,12 @@ class FootballDataOrgProvider:
             matches = payload["matches"]
             if not isinstance(matches, list):
                 raise TypeError
-            return tuple(self._normalize(competition, item) for item in matches)
+            return tuple(
+                self._normalize(competition, item)
+                for item in matches
+                if item.get("homeTeam", {}).get("name") is not None
+                and item.get("awayTeam", {}).get("name") is not None
+            )
         except (KeyError, TypeError, ValueError) as error:
             raise ProviderSchemaError("football-data.org response schema is invalid") from error
 
