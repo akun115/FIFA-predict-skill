@@ -1,7 +1,7 @@
 {
   "name": "world-cup-oracle",
-  "version": "2.2.0",
-  "description": "World Cup prediction plugin with deterministic Python probabilities, a lightweight provenance-aware data hub, and an isolated national-team model lab for candidate training and walk-forward evaluation. Models remain provisional unless promotion gates pass.",
+  "version": "2.3.0",
+  "description": "World Cup prediction plugin with deterministic Python probabilities, a lightweight provenance-aware data hub, an optional Socratic pre-match belief-clarification route, and an isolated national-team model lab for candidate training and walk-forward evaluation. Models remain provisional unless promotion gates pass.",
   "author": {
     "name": "World Cup Oracle Team"
   },
@@ -12,6 +12,7 @@
     "soccer",
     "prediction",
     "dixon-coles",
+    "socratic",
     "walk-forward",
     "data-provenance"
   ]
