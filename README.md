@@ -34,7 +34,7 @@ Loaded as a Claude Code plugin, the skills and MCP servers activate automaticall
 
 | Skill | Purpose |
 |-------|---------|
-| `world-cup-oracle:world-cup-oracle` | Predict a World Cup match — scout → form → strength → tactical → oracle |
+| `world-cup-oracle:world-cup-oracle` | Predict a World Cup match — scout → form → strength → tactical → oracle. Optional Socratic pre-match belief-clarification route. |
 | `world-cup-oracle:oracle-model-lab` | Train / backtest / promote the national-team Dixon-Coles model |
 | `world-cup-oracle:football-data-maintenance` | Manage providers, entities, cache, freshness, and provenance |
 
@@ -73,6 +73,20 @@ What happens:
 4. Oracle agent synthesizes model output + qualitative caveats
 
 > Ordinary prediction does not retrain the model. Qualitative research informs risk notes only — probabilities come from math.
+
+## Socratic guided route
+
+An optional pre-match belief-clarification route. Before seeing model probabilities, you first articulate your own judgment and confidence — then calibrate with live evidence and `predict_match`.
+
+```text
+使用 world-cup-oracle，用苏格拉底式追问带我分析巴西 vs 日本。
+先别直接给结论；先让我给出自己的判断和信心，再联网核验证据，
+最后对照 predict_match 的概率。
+```
+
+The route follows five stages: Judgment Framing → Initial Commitment (`USER_PRIOR`) → Assumption Probing → Evidence Calibration → Model Comparison. See `skills/world-cup-oracle/references/socratic-guided-route.md`.
+
+> The Socratic route calibrates USER judgment only. It does NOT modify model probabilities, bypass `predict_match`, induce betting, or fabricate information.
 
 ## Maintain the model
 
@@ -120,6 +134,7 @@ When loaded as a plugin, `.mcp.json` defaults storage to plugin-local `.local/` 
 | Injuries / News / Lineups | Report-only or context-only. No xG adjustment. |
 | Tournament context | Annotative only. Never modifies `predict_match` probabilities. |
 | Model (`predict_match`) | Probabilities from Dixon-Coles math only. Agents must not alter them. |
+| Socratic route | Calibrates user judgment only. Never bypasses `predict_match`, never induces betting. |
 | Training pipeline | All gates must pass. Promotion requires explicit confirmation. |
 | Default tests | Offline, synthetic, no env, no API key. 0 failed / 0 skipped. |
 
@@ -170,6 +185,7 @@ Default tests are **offline**: no network, no env reads, no API keys, synthetic 
 - Results observed after an `as_of` cutoff are excluded.
 - Candidate promotion requires passing gates and explicit confirmation.
 - All providers fail closed; missing data → gaps/caveats, not fabrication.
+- Socratic route is optional: user judgment calibration only, does not modify model probabilities.
 - Live operation requires external credentials, deployment, and validation.
 
 ## What this project does NOT claim
