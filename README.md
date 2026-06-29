@@ -34,7 +34,7 @@ Loaded as a Claude Code plugin, the skills and MCP servers activate automaticall
 
 | Skill | Purpose |
 |-------|---------|
-| `world-cup-oracle:world-cup-oracle` | Predict a World Cup match — scout → form → strength → tactical → oracle |
+| `world-cup-oracle:world-cup-oracle` | Predict a World Cup match — scout → form → strength → tactical → oracle; optionally run a Socratic pre-match belief-clarification route before the model call |
 | `world-cup-oracle:oracle-model-lab` | Train / backtest / promote the national-team Dixon-Coles model |
 | `world-cup-oracle:football-data-maintenance` | Manage providers, entities, cache, freshness, and provenance |
 
@@ -73,6 +73,25 @@ What happens:
 4. Oracle agent synthesizes model output + qualitative caveats
 
 > Ordinary prediction does not retrain the model. Qualitative research informs risk notes only — probabilities come from math.
+
+## Socratic guided route
+
+Use this optional route when the user wants to reason through a match before seeing the model output:
+
+```text
+使用 world-cup-oracle，用苏格拉底式追问带我分析巴西 vs 日本。
+先别直接给结论；先让我给出自己的判断和信心，再联网核验证据，最后对照 predict_match 的概率。
+```
+
+What happens:
+1. The assistant frames the exact question: winner, score band, upset risk, advancement, tactical matchup, or model-failure risk.
+2. The user states an initial prior and confidence before seeing model probabilities.
+3. The assistant asks focused follow-up questions about assumptions, evidence, counterexamples, and match implications.
+4. Sourced pre-match research checks injuries, lineups, schedule context, venue/weather, and coach statements.
+5. `predict_match` still provides the official numeric probabilities; the user's prior is used only for calibration and explanation.
+6. The final answer includes a short judgment-calibration summary: where the user's prior matched evidence, where it diverged from the model, and which caveats matter most.
+
+See `skills/world-cup-oracle/references/socratic-guided-route.md` for the detailed route. This route is adapted as an original sports-analysis workflow inspired by Socratic guided questioning patterns; it does not copy external protocol text and does not change the model's probability source.
 
 ## Maintain the model
 
@@ -120,6 +139,7 @@ When loaded as a plugin, `.mcp.json` defaults storage to plugin-local `.local/` 
 | Injuries / News / Lineups | Report-only or context-only. No xG adjustment. |
 | Tournament context | Annotative only. Never modifies `predict_match` probabilities. |
 | Model (`predict_match`) | Probabilities from Dixon-Coles math only. Agents must not alter them. |
+| Socratic route | Clarifies user priors and assumptions only. Never modifies model probabilities or turns intuition into model output. |
 | Training pipeline | All gates must pass. Promotion requires explicit confirmation. |
 | Default tests | Offline, synthetic, no env, no API key. 0 failed / 0 skipped. |
 
@@ -171,6 +191,7 @@ Default tests are **offline**: no network, no env reads, no API keys, synthetic 
 - Candidate promotion requires passing gates and explicit confirmation.
 - All providers fail closed; missing data → gaps/caveats, not fabrication.
 - Live operation requires external credentials, deployment, and validation.
+- Socratic questioning can calibrate user reasoning but cannot override, tune, or relabel model probabilities.
 
 ## What this project does NOT claim
 
